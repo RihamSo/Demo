@@ -1,0 +1,13 @@
+.center_div{
+    margin: 0 auto;
+    width:90% /* value of your choice which suits your alignment */
+}
+
+body {
+    padding-top: 200px;
+    text-align: center;
+}
+form {
+    margin: 28px;
+    display: inline-block;
+}

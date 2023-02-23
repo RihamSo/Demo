@@ -1,0 +1,106 @@
+
+<html>
+<head>
+    <link href="ssubmit.css" rel="stylesheet">
+</head>
+
+<form class="box" action="login.php" method="post" name="suForm">
+    <h1>Login</h1>
+    <!--<input type="text" name="u_email" placeholder="Email">
+    <input type="password" name="u_pass" placeholder="Password">
+    <input type="submit" name="u_btn" value="Login">-->
+    <input type="text" placeholder="Full name" id="name" onclick="resetBtn()" >
+    <input type="text" placeholder="Email" id="email" onclick="resetBtn()">
+    <input type="password" placeholder="Password" id="pass" onclick="resetBtn()" >
+    
+    <!--<input type="checkbox" name="check1" id="check" onclick="resetBtn()">
+    <label for="check" class="label">I agree to the 'Terms and policies'.</label>-->
+
+    <input type="submit" id="submit-btn" value="Sign Up" onmouseover="mouseOver()">
+</form>
+
+    
+    <div id="right-bar">
+
+<form  class="box box2" action="register.php" method="POST" >
+    <input type="submit" name="" value="Not got an Account?">
+</form>
+</div>
+
+<body>
+    <script>
+
+        var a = 0;
+        var uname="Riham Sayyed"
+        var emailid="wwww@gmai.com"
+        var upass="123"
+    
+        function mouseOver(){
+            
+            const name = document.forms['suForm']['name'].value;
+            const email = document.forms['suForm']['email'].value;
+            const pass = document.forms['suForm']['pass'].value;
+            const tick = document.querySelector('#check');
+    
+            const emailCheck = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
+    
+    
+            if((name == "" || !email.match(emailCheck) || pass == ""  || pass !== upass || name !== uname || email !== emailid) && a==0){
+            buttonMoveLeft();
+            a = 1;
+            return false;
+            } 
+
+            
+    
+            if((name == "" || !email.match(emailCheck) || pass == ""  || pass !== upass || name !== uname || email !== emailid) && a==1){
+            buttonMoveRight();
+            a = 2;
+            return false;
+            } 
+    
+            if((name == "" || !email.match(emailCheck) || pass == ""  || pass !== upass || name !== uname || email !== emailid ) && a==2){
+            buttonMoveLeft();
+            a = 1;
+            return false;
+            } 
+    
+            else{
+    
+                // document.getElementById('submit-btn').click();  
+                document.getElementById('submit-btn').style.cursor = 'pointer';
+                return false;
+            };
+    
+        };
+    
+    
+        
+    
+        function buttonMoveLeft(){
+    
+            const button = document.getElementById('submit-btn');
+            button.style.transform = 'translateX(-160%)';
+    
+        };
+    
+    
+        function buttonMoveRight(){
+    
+            const button = document.getElementById('submit-btn');
+            button.style.transform = 'translateX(0%)';
+    
+        };
+    
+    
+        function resetBtn(){
+            const button = document.getElementById('submit-btn');
+            button.style.transform = 'translateX(0%)';
+        };
+    
+    
+    </script>
+</body>
+
+</html>

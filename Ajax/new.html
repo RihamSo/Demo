@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<title>Countries and Capitals</title>
+	<style>
+		body {
+			text-align: center;
+		}
+
+		h1 {
+			color: #44A075;
+		}
+
+		table {
+			border: 2px solid #f5a208;
+		}
+
+		caption {
+			margin: 10px 0;
+		}
+
+		tr {
+			height: 30px;
+		}
+
+		th,
+		td {
+			border: 1px solid #f5a208;
+			width: 100px;
+		}
+
+		.info {
+			display: flex;
+			justify-content: center;
+		}
+
+		button {
+			margin: 20px 0;
+			height: 40px;
+			width: 100px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<!--<h1>GeeksforGeeks</h1>-->
+	<div class="info">
+		<table>
+			<caption>Countries and their capitals</caption>
+			<th>Countries</th>
+			<th>Capitals</th>
+			<tr>
+				<td class="countries"></td>
+				<td class="capitals"></td>
+			</tr>
+			<tr>
+				<td class="countries"></td>
+				<td class="capitals"></td>
+			</tr>
+			<tr>
+				<td class="countries"></td>
+				<td class="capitals"></td>
+			</tr>
+			<tr>
+				<td class="countries"></td>
+				<td class="capitals"></td>
+			</tr>
+			<tr>
+				<td class="countries"></td>
+				<td class="capitals"></td>
+			</tr>
+		</table>
+	</div>
+	<button id="fetchBtn" type="button" name="button">Fetch</button>
+	<!--<script src="capital.js" charset="utf-8"></script>-->
+    <script>
+
+const fetchBtn = document.getElementById("fetchBtn");
+const countries = document.getElementsByClassName("countries");
+const capitals = document.getElementsByClassName("capitals");
+  
+fetchBtn.addEventListener("click", buttonHandler);
+  
+// Defining buttonHandler function
+function buttonHandler() {
+  
+    // First create an XMLHttprequest object
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "conutry.json", true);
+    xhr.getResponseHeader("Content-type", "application/json");
+  
+    xhr.onload = function() {
+        const obj = JSON.parse(this.responseText);
+        Array.from(countries).forEach((country, index) => {
+            country.innerText = obj.countries_capitals[index].country;
+        });
+  
+        Array.from(capitals).forEach((capital, index) => {
+            capital.innerText = obj.countries_capitals[index].capital;
+        });
+    }
+  
+    xhr.send();
+}
+    </script>
+</body>
+
+</html>

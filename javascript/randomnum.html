@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <input type="text" id="input">
+    <input type="text" id="count">
+    <button id="chek" onclick="Check()">check</button>
+    <p id="demo1"></p>
+    <p id="demo"></p>
+    <p id="demo12"></p>
+    <p id="demo13"></p>
+    <script>
+        let x = Math.random() * 100;
+        let y = parseInt(x)
+        document.getElementById("demo1").innerHTML = y;
+
+        function Check() {
+            var Input = parseInt(document.getElementById("input").value)
+            console.log(Input);
+
+            document.getElementById("count").value = y;
+
+            //console.log(i)
+
+            if (Input < y) {
+                //document.getElementById("demo").innerHTML="your num " +input+" is less than that number"
+                console.log("your num " + Input + " is less than that number")
+            }
+
+
+            if (Input > y) {
+                //document.getElementById("demo").innerHTML="your num " +input+" is greater than that number"
+                console.log("your num " + Input + " is less than that number")
+            }
+
+
+            if (Input == y) {
+                //document.getElementById("demo").innerHTML="you Got that number"
+                console.log("you got it")
+            }
+
+        }
+
+const d = new Date();
+document.getElementById("demo12").innerHTML = d;//  to get todays date
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const d1 = new Date();
+let month = months[d1.getMonth()];
+console.log(month)//to get current month
+
+
+const date=new Date()
+console.log(date.getDate()) //to get todays day
+
+const name = "W3Schools";
+
+// List all Elements
+let text = ""
+st=new Array(name)
+for (var i=0;i<st.size;i++) {
+  document.getElementById("demo13").innerHTML = st[i];
+  //console.log(x)
+}
+
+
+
+//loop through set
+
+const letters = new Set(["a","b","c"]);
+
+// Display set.size
+//document .getElementById("demo").innerHTML = letters.keys();
+var text1= " "
+for (var i of letters.keys()){
+    text1 += i + "<br>"
+
+}
+
+document.getElementById("demo").innerHTML = text1;
+</script>
+   
+
+</body>
+
+</html>

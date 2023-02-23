@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> <!-- Get Element By id-->
+        <button onclick="document.getElementById('img1').src='sayhi.jpg'">Say Hi</button>
+        <img src="sayhi.jpg" alt="" class="img1" id="img1" style="width:500px">
+        <button onclick="document.getElementById('img1').src='not-hi.jpg'">No Hi</button>
+
+        <!-- change style of text-->
+        <p id="text" style="font-size: large;">Hello this is me</p>
+        <button onclick="document.getElementById('text').style.fontFamily='cursive'">change me</button>
+    </h1>
+<p id="demo"></p>
+
+    <!--change text using function-->
+
+    <p id="text1">Hello Guys....</p>
+    <button type='button' onclick='myFunction()'>click to change text</button>
+
+    <script type="module">
+
+
+
+        function myFunction() {
+            document.getElementById('text1').innerHTML = "Now i am changed.";
+        }
+
+
+
+
+        //to concatinate two string
+        function concat() {
+            var x = document.getElementById("v1").value;
+            var y = document.getElementById("v2").value;
+            var z = x + y
+            console.log(z)
+
+        }
+
+
+        // to add two numbers
+
+        function add(a, b) {
+            var z = a + b
+            console.log(z)
+
+        }
+
+
+        console.log(add(10, 25))
+
+        console.log("42" === 42)  //false
+
+        console.log("42" == 42)  //true
+
+        console.log("riham" == "Riham")  //false
+
+        console.log("riham" === "Riham")  //false
+
+        //two change color of text
+
+
+        function changecolor() {
+            var t = document.getElementById("i1").value
+            if (t === "red") {
+                document.getElementById("hello").style.color = "red"
+            }
+
+            else if (t === "yellow") {
+                document.getElementById("hello").style.color = "yellow"
+
+            }
+
+            else if (t === "green") {
+                document.getElementById("hello").style.color = "green"
+
+            }
+            else {
+                document.getElementById("hello").style.color = "black"
+            }
+
+        }
+
+        //cheking age
+
+        function AdultorNot() {
+            var age = parseInt(document.getElementById("age").value)  // to convert it into number
+            if (age < 18) {
+                document.getElementById("output").innerHTML = "you are lesser than 18."
+
+            }
+            if (age == 18) {
+                document.getElementById("output").innerHTML = "you are 18 Years Old."
+            }
+
+            if (age > 18) {
+                document.getElementById("output").innerHTML = "you are greater than 18"
+            }
+
+        }
+        var v1 = 100
+        var v2 = 23
+        var r = v1 + v2
+        console.log(typeof r)// 123 number
+        console.log(typeof (v1 + v2).toString())// 123 string
+
+
+
+        import message from "./message.js";
+        document.getElementById("demo").innerHTML = message();
+
+
+    </script>
+
+
+
+
+    <input type="text" id="v1">
+    <input type="text" id="v2">
+
+    <button id="addinput" onclick="concat()">add Inputs</button>
+
+    <button id="add" onclick="add(34,45)">add</button>
+
+    <!--color changing-->
+    <h1 id="hello">Hello</h1>
+    <input type="text" id="i1">
+    <button id="check" onclick="changecolor()">change</button>
+
+
+
+    <!-- chekinng age-->
+    <br>
+
+    <h1>what is your age?</h1>
+    <input type="text" id="age">
+
+    <button id="CAge" onclick="AdultorNot()">check your age</button>
+
+    <p id="output"></p>
+
+</body>
+
+</html>

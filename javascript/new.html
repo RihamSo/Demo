@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+<label for="userPassword">Password: </label>
+<input id="userPassword" type="password" />
+
+
+<!--//
+//  on
+//  
+//    Allow the browser or a password manager to automatically fill out the password field. This isn't as informative as using either current-password or new-password.
+//  
+//  off
+//  
+//    Don't allow the browser or password manager to automatically fill out the password field. Note that some software ignores this value, since it's typically harmful to users' ability to maintain safe password practices.
+//  
+//  current-password
+//  
+//    Allow the browser or password manager to enter the current password for the site. This provides more information than on does, since it lets the browser or password manager automatically enter currently-known password for the site in the field, but not to suggest a new one.
+//  
+//  new-password
+//  
+//    Allow the browser or password manager to automatically enter a new password for the site; this is used on "change your password" and "new user" forms, on the field asking the user for a new password. The new password may be generated in a variety of ways, depending on the password manager in use. It may fill in a new suggested password, or it might show the user an interface for creating one.
+//  
+//-->
+<label for="userPassword">Password:</label>
+<input id="userPassword" type="password" autocomplete="current-password" />
+
+
+<label for="userPassword">Password: </label>
+<input id="userPassword" type="password" required />
+<input type="submit" value="Submit" />
+
+
+<label for="pin">PIN: </label>
+<input id="pin" type="password" inputmode="numeric" />
+
+
+<label for="pin">PIN:</label>
+<input
+  id="pin"
+  type="password"
+  inputmode="numeric"
+  minlength="4"
+  maxlength="8"
+  size="8" />
+
+
+
+<label for="userPassword">Password: </label>
+<input id="userPassword" type="password" size="12" />
+<button id="selectAll">Select All</button>
+
+
+<script>
+document.getElementById("selectAll").onclick = () => {
+  document.getElementById("userPassword").select();
+
+  const ssn = document.getElementById("ssn");
+const current = document.getElementById("current");
+
+ssn.oninput = (event) => {
+  current.textContent = ssn.value;
+}
+}
+
+</script>
+<label for="hexId">Hex ID: </label>
+<input
+  id="hexId"
+  type="password"
+  pattern="[0-9a-fA-F]{4,8}"
+  title="Enter an ID consisting of 4-8 hexadecimal digits"
+  autocomplete="new-password" />
+
+
+<label for="ssn">SSN:</label>
+<input
+  type="password"
+  id="ssn"
+  inputmode="numeric"
+  minlength="9"
+  maxlength="12"
+  pattern="(?!000)([0-6]\d{2}|7([0-6]\d|7[012]))([ -])?(?!00)\d\d\3(?!0000)\d{4}"
+  required
+  autocomplete="off" />
+<br />
+<label for="ssn">Value:</label>
+<span id="current"></span>
+
+
+
+
+</body>
+</html>
