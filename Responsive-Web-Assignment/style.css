@@ -1,0 +1,390 @@
+*{
+    margin:0;
+    padding:0;
+}
+.logo{
+    width:3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img{
+    border: 3px solid white;
+    border-radius: 50%;
+}
+.navbar{
+    
+    display: flex;
+    position:sticky;
+    top:0;
+   cursor: pointer;
+}
+
+.nav-list{
+    /*background-color:black;*/
+    display:flex;
+    list-style-type: none;
+   /*justify-content: center;*/
+   align-items: center;
+   width:100%
+
+  
+   
+}
+
+
+
+.nav-list li{
+    text-decoration:none;
+    padding: 20px 33px;
+   
+
+}
+
+.nav-list li a{
+    text-decoration:none;
+    color:white;}
+
+.nav-list li a:hover{
+        text-decoration:none;
+        color:pink;
+}
+
+.right-nav{
+    /*background-color:red;*/
+    text-align: right;
+margin: auto;
+    width:30%
+    
+}
+
+#search{
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 9px;
+    
+}
+
+.background{
+    background:rgba(0, 0, 0, 0.7) url('../images/person.jpg');
+    background-size: cover;
+    background-blend-mode: darken;
+
+}
+
+.firstsection{
+    height:100vh;
+}
+.Secondsection{
+    height: 35vh;
+}
+
+.main{
+    display: flex;
+    max-width: 80%;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: smaller;
+    margin: auto;
+    height: 80%;
+    
+}
+.img1{
+    height: 100px;
+    width: 100px;
+}
+
+
+.first{
+    display:flex;
+    justify-content: center;
+
+    width:80%
+    
+    
+
+}
+
+.second{
+width:30%
+}
+
+.second img{
+    border-radius: radius 150px;
+    width:70%;
+    padding:4px
+   
+}
+.contact{
+    justify-content: center;
+    background-color: cornsilk;
+    margin: auto;
+
+}
+.form {
+    justify-content: center;
+    width:390px;
+    margin: auto;
+    border: 2px solid black;
+border-radius: 6px;
+}
+.c-l li{
+    padding: 13px 20px;
+    text-align: center;
+    font-size: 19px;
+    margin: 5px 3px;
+    
+}
+.c-l li input{
+    border: 1px solid black;
+    border-radius: 6px;
+}
+.btn{
+    margin: auto;
+    justify-items: center;
+}
+
+/*.column{   width:32%;
+    padding: 4px;
+    height: 469px; }
+.test{ width:32%;
+color:white; }*/
+.column{ flex-direction: row ; width:32%; }
+.test{ width:32%; word-wrap: break-word; }
+
+
+.Main-content{
+    display: flex;
+  width:"100%";
+  padding: 207px 2px;
+
+}
+.footer{
+    text-align: center;
+    padding: 3px;
+    border: 1px solid black;
+    margin: 6px;
+    border-radius: 7px;
+}
+.footer a{
+  color: white; padding: 6px; text-align: left;
+       
+}
+
+.footer a:hover{
+  /*text-decoration:none;*/
+  color:pink;
+}
+
+
+@media only  screen and (max-width: 900px) {
+    
+    .nav-list {
+    
+      flex-direction: row;
+      margin: auto; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+    .navbar{
+        flex-direction: row;
+        height:20%;
+        background-size: cover;
+        
+    }
+    .right-nav{
+        /*background-color:red;*/
+        text-align: center;
+  }
+  #search{
+    width:100%;
+  }
+  .second img{
+    /*max-width:auto;*/
+    height:auto;
+   
+}
+.column{
+    
+    width:80%;
+    justify-content: center;
+    height: 235px;
+    margin:20px
+  }
+  .Main-content{
+    flex-direction: row;
+      width:100%; 
+      padding: 74px 2px; 
+  }
+ .s_i_f {
+    color:black;
+  }
+ .t_i_f {
+    color:black;
+  }
+}
+
+
+
+@media only  screen and (max-width: 768px) {
+    .nav-list {
+      flex-direction: row;
+      margin: auto; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+
+    .nav-list li{
+        padding: 20px 53p;
+    }
+    .navbar{
+        flex-direction: row;
+        height:20%;
+        background-size: cover;
+        
+    }
+    .right-nav{
+        /*background-color:red;*/
+        text-align: center;
+  }
+  #search{
+    width:100%;
+  }
+  .second img{
+    /*max-width:auto;*/
+    height:auto;
+   
+}
+.column{
+    
+    width:80%;
+    justify-content: center;
+    height: 235px;
+    margin:20px
+  }
+  .Main-content{
+    flex-direction: row;
+      width:100%; 
+      padding: 74px 2px; 
+  }
+ .s_i_f {
+    color:black;
+  }
+ .t_i_f {
+    color:black;
+  }
+}
+/*575*/
+@media only  screen and (max-width: 414px) {
+    .nav-list {
+      flex-direction: row;
+      margin: auto; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+    .nav-list li{
+        text-decoration: none;
+        padding: 15px 9px;
+    }
+    .navbar{
+        flex-direction: row;
+        height:20%;
+        background-size: cover;
+        
+    }
+    .right-nav{
+        /*background-color:red;*/
+        text-align: center;
+  }
+  #search{
+    width:100%;
+  }
+  .second img{
+    /*max-width:auto;*/
+    height:auto;
+   
+}
+.column{
+    
+    width:80%;
+    justify-content: center;
+    height: 200px;
+    margin:15px
+  }
+  .Main-content{
+    flex-direction: column;
+      width:100%; 
+      padding: 15px 15px 
+  }
+ .s_i_f {
+    color:black;
+  }
+ .t_i_f {
+    color:black;
+  }
+  .img1{
+    height: 35%;
+    width: 24%;
+  }
+  .column p{
+    font-size: 13px;
+  }
+  .Secondsection{
+    height: 43vh;
+  }
+}
+
+
+@media only  screen and (max-width: 270px) {
+  .nav-list {
+    flex-direction: row;
+    margin: auto; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .nav-list li{
+      text-decoration: none;
+      padding: 15px 3px;
+  }
+  .navbar{
+      flex-direction: row;
+      height:20%;
+      background-size: cover;
+      
+  }
+  .right-nav{
+      /*background-color:red;*/
+      text-align: center;
+}
+#search{
+  width:100%;
+}
+.second img{
+  /*max-width:auto;*/
+  height:auto;
+ 
+}
+.column{
+  
+  width:80%;
+  justify-content: center;
+  height: 168px;
+  margin:20px
+}
+.Main-content{
+  flex-direction: column;
+    width:100%; 
+    padding: 6px 5px 
+}
+.s_i_f {
+  color:black;
+}
+.t_i_f {
+  color:black;
+}
+.img1{
+  height: 35%;
+  width: 24%;
+}
+.column p{
+  font-size: 13px;
+}
+.Secondsection{
+  height: 43vh;
+}
+}
