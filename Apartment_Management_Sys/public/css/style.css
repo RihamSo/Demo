@@ -44,7 +44,12 @@ h2{
 .bgcolor{
   background-color: #d7beef;
 }
-
+.id-form {
+  border: 1px solid black;
+  padding: 33px;
+  margin: 54px 53px;
+  text-align: center;
+}
 
 @media (max-width: 450px) {
   .h-custom {

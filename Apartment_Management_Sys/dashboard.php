@@ -1,14 +1,8 @@
 <?php
-  session_start(); 
-
-// include('./public/meta.php');
-// include('./protected/header.php');
- //include('../public/header.php');
- //$user = new User();
+ session_start(); 
  include('./public/meta.php');
  include('./protected/header.php');
  $result=$user->get_User_Data();
-//print_r($result);
  ?>
  <div class="container-fluid">
     <div class="row flex-nowrap">
@@ -70,9 +64,20 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+                        <a href="add.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Add User</span> </a>
                     </li>
+
+                    <li>
+                        <a href="listU.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">List User</span> </a>
+                    </li>
+
+                    <li>
+                        <a href="getSpecificUser.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Get User</span> </a>
+                    </li>
+                    
                     <li><a  href="logout.php">Sign out</a></li>
                 </ul>
                 <hr>

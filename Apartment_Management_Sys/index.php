@@ -8,20 +8,15 @@
   $userEmail = $_POST['email'];
   $userPassword = $_POST['password'];
   
-  //echo $_SESSION['email'];
-  //echo $_SESSION['passW'];
-
  if (empty($userEmail) || empty($userPassword)) {
     $err="incomplete Credentials";
   } else {
     $isValidCredential= $auth->login($userEmail,$userPassword);
     if ($isValidCredential) {
-  session_start(); 
-  $_SESSION['email'] = $userEmail;
-  $_SESSION['passW'] = $userPassword;
-      //$user->get_User_Data();
+    session_start(); 
+    $_SESSION['email'] = $userEmail;
+    $_SESSION['passW'] = $userPassword;              
       header('Location: dashboard.php');
-      //$result=$user->get_User_Data() ;
     } else {
       $err="incorrect credentials";
     }
@@ -59,14 +54,14 @@
                   Remember me
                 </label>
               </div>
-              <a href="forgotpassword.html" class="text-body">Forgot password?</a>
+              <a href="forgotpassword.php" class="text-body">Forgot password?</a>
             </div>
 
             <div class="text-center btnclass">
               <input type="submit" name="submit" class="btn btn-primary btn-lg "
                 style="padding-left: 2.5rem; padding-right: 2.5rem;" value="Login" >
                  <?php echo $err ? '<span class="error">'.$err.'</span>':'';?>
-              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="register.html"
+              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="register.php"
                   class="link-danger">Register</a></p>
             </div>
 
