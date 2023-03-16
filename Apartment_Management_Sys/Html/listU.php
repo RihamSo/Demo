@@ -1,8 +1,7 @@
 <?php
-//include(PROJECT_ROOT.'public/meta.php');
-//include(PROJECT_ROOT.'protected/header.php');
-include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/meta.php');
-include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/header.php');
+//session_start();
+include('./public/meta.php');
+include('./protected/header.php');
 $result=$user->listUser();
 ?>
 

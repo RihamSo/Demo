@@ -64,17 +64,21 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="add.php" class="nav-link px-0 align-middle">
+                        <a href="./user/add.php" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Add User</span> </a>
+                    </li>
+                    <li>
+                        <a href="./user/edit.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Update User</span> </a>
                     </li>
 
                     <li>
-                        <a href="listU.php" class="nav-link px-0 align-middle">
+                        <a href="./user/list.php" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">List User</span> </a>
                     </li>
 
                     <li>
-                        <a href="getSpecificUser.php" class="nav-link px-0 align-middle">
+                        <a href="./user/detail.php" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Get User</span> </a>
                     </li>
                     
