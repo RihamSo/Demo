@@ -46,6 +46,7 @@ if ( isset($_POST['submit']) ) {
      <td><?php echo $row["email"]; ?></td>
      <td><?php echo $row["password"]; ?></td>
      <td><?php echo $row['aptId']; ?></td>
+     <td><button type="submit" class="btn btn-primary " name="submit">Add</button><button type="submit"  class="btn btn-primary mx-4" name="submit">Update</button></td>
      
 </tr>
 <?php }?>

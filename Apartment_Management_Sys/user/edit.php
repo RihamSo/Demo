@@ -4,22 +4,25 @@ include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/met
 include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/header.php');
 $err="";
 if (isset($_SESSION['email']) &&  isset($_SESSION['passW'])) {
-    $e = $_SESSION['email'];
-    $p = $_SESSION['passW'];
+     $e = $_SESSION['email'];
+     $p = $_SESSION['passW'];
      $sql="SELECT * FROM  user  WHERE email = '".$e."' AND password = '".$p."'";
      $result = $conn->query($sql);
      $row = mysqli_fetch_assoc($result);
      if ( isset($_POST['submit']) ) { 
-        if(empty($_POST['fname']) && empty($_POST['lname']) && empty($_POST['aptno'])){
-            $err= "Please Fill all Fields";
-        } else {
-            $userFname = $_POST['fname'];
+        if(!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['aptno'])){
+			$userFname = $_POST['fname'];
             $userLname = $_POST['lname'];
             $userAptNo = $_POST['aptno'];
             $result=$user->updateUser($userFname,$userLname,$userAptNo);
             if ($result){
+				$sql="SELECT * FROM  user  WHERE email = '".$e."' AND password = '".$p."'";
+				$result = $conn->query($sql);
+				$row = mysqli_fetch_assoc($result);
                 $err="Updated Successfully of User Id".$row['uId'];
-            }
+            } 
+		} else {
+           $err="Please Fill All Fields";
         }
      }
    } 
@@ -28,8 +31,8 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['passW'])) {
 
 <form action="" method="POST" class="id-form text-center" >
 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-									<h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook me-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>
-									<span class="text-secondary">bootdey</span>
+									<h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook me-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Update Info</h6>
+									<a href="../dashboard.php"><span class="text-secondary">Back</span></a>
 								</li>
 							</ul>
 						</div>
@@ -54,30 +57,6 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['passW'])) {
 									<input type="text" class="form-control" value="<?php echo $row ? $row['lastName']:'';?>" name='lname'>
 								</div>
 							</div>
-							<!-- <div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Email</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="email" class="form-control" value="john@example.com" name='email'>
-								</div>
-							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Password</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="*********" name='pass'>
-								</div>
-							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Confirm Pass</h6>
-								</div> -->
-								<!-- <div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="*********" name='cpass'>
-								</div>
-							</div> -->
 							<div class="row mb-3">
 								<div class="col-sm-3">
 									<h6 class="mb-0">Apartment No</h6>

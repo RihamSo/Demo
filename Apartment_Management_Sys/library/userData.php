@@ -52,12 +52,13 @@ class User{
       $e = $_SESSION['email'];
       $p = $_SESSION['passW'];
     } 
-    // if(!empty())
-    $sql="UPDATE  user SET firstName='".$userFname."' , lastName='".$userLname."',aptName='".$userAptNo."' WHERE email = '".$e."' AND password = '".$p."'";
+    $sql="UPDATE  user SET firstName='".$userFname."' , lastName='".$userLname."',aptId='".$userAptNo."' WHERE email = '".$e."' AND password = '".$p."'";
     $uData=$conn->query($sql);
-    //$uData = mysqli_fetch_assoc($row);
-    return $uData;
-    
-  }
+    if($uData) {
+      return true;
+    } else {
+      return false;
+    }
+  } 
 }
 ?>

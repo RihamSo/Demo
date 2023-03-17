@@ -1,4 +1,4 @@
-<?phpdefine('PROJECT_ROOT',$_SERVER['DOCUMENT_ROOT'].'/Riham/Apartment_Management_Sys/');?>
+
 
 <!DOCTYPE html>
 <html lang="en">

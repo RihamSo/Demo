@@ -71,6 +71,30 @@ h2{
 .me-2 {
   margin-right: .5rem!important;
 }
+.maindiv{
+  padding-top: 100px;
+  /* margin: 10px 5px; */
+}
+.addbtn{
+  margin: 10px;
+}
+
+/* .bdiv{
+  width: 1419px;
+} */
+.table {
+  /* width: 50%; */
+  margin: 0 auto !important;
+  
+}
+
+.table td{
+  white-space: nowrap;
+}
+.table th {
+    white-space: nowrap;
+    
+}
 
 @media (max-width: 450px) {
   .h-custom {

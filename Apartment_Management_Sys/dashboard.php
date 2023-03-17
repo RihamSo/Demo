@@ -1,7 +1,7 @@
 <?php
  session_start(); 
- include('./public/meta.php');
- include('./protected/header.php');
+ include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/public/meta.php');
+ include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/header.php');
  $result=$user->get_User_Data();
  ?>
  <div class="container-fluid">
@@ -64,6 +64,10 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="./apartment/list.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Apartment</span> </a>
+                    </li>
+                    <li>
                         <a href="./user/add.php" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Add User</span> </a>
                     </li>
@@ -105,7 +109,7 @@
             <p class="lead"><h5>Your Email is<?php echo " :  ".$result['email'] ."<br/>You password is: ".$result['password']?></h5>
                                      </p>
             <ul class="list-unstyled">
-                <li><h6>Others Details:</h6><br/> <?php echo "Created By : ".$result['createdBy']."<br/>Created At: ".$result['createdAt']?></li>
+                <li><h6>Others Details:</h6><br/> <?php echo "Apartment No :".$result['aptId']."<br/>Created By : ".$result['createdBy']."<br/>Created At: ".$result['createdAt']?></li>
             </ul>
         </div>
     </div>

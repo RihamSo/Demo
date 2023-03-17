@@ -1,8 +1,9 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/library/helper.php');
-include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/library/auth.php');
-include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/library/userData.php');
-
+include(PROJECT_ROOT.'library/helper.php');
+include(PROJECT_ROOT.'library/auth.php');
+include(PROJECT_ROOT.'library/userData.php');
+include(PROJECT_ROOT.'library/aptData.php');
 $auth= new Auth();
 $user=new User();
+$apt=new Apt();
 ?>
