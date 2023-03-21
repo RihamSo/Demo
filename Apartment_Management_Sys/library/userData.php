@@ -25,7 +25,7 @@ class User{
 
   function listUser() {
     global $conn;
-    $sql="SELECT * FROM `user`";
+    $sql="SELECT * FROM `user`  ";
     $result = $conn->query($sql);
     return $result;
   }
@@ -46,13 +46,13 @@ class User{
     }
   }
 
-  function updateUser($userFname,$userLname,$userAptNo) {
+  function updateUser($id,$userFname,$userLname,$userAptNo,$UpdatedByPerson) {
     global $conn;
-    if (isset($_SESSION['email']) &&  isset($_SESSION['passW']) ) {
-      $e = $_SESSION['email'];
-      $p = $_SESSION['passW'];
-    } 
-    $sql="UPDATE  user SET firstName='".$userFname."' , lastName='".$userLname."',aptId='".$userAptNo."' WHERE email = '".$e."' AND password = '".$p."'";
+    // if (isset($_SESSION['email']) &&  isset($_SESSION['passW']) ) {
+    //   $e = $_SESSION['email'];
+    //   $p = $_SESSION['passW'];
+    // } 
+    $sql="UPDATE  user SET firstName='".$userFname."' , lastName='".$userLname."',aptId='".$userAptNo."' ,updatedBy='".$UpdatedByPerson."' WHERE uId = '".$id."'";
     $uData=$conn->query($sql);
     if($uData) {
       return true;
@@ -60,5 +60,38 @@ class User{
       return false;
     }
   } 
+
+  function userDelete($uId){
+    global $conn;
+    $sql="DELETE FROM user WHERE uId='".$uId."'";
+    $result=$conn->query($sql);
+    if($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+ function userToChairperson($uId){
+  global $conn;
+  $sql="UPDATE  user SET rId=3  WHERE uId = '".$uId."'";
+  $result=$conn->query($sql);
+    if($result) {
+        return true;
+    } else {
+        return false;
+    }
+
+ }
+
+ function chairpersonToUser($uId){
+  global $conn;
+  $sql="UPDATE  user SET rId=2  WHERE uId = '".$uId."'";
+  $result=$conn->query($sql);
+    if($result) {
+        return true;
+    } else {
+        return false;
+    }
+ }
 }
 ?>

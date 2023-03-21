@@ -8,7 +8,7 @@ if ( isset($_POST['submit']) ) {
 }
 ?>
 
-<h4>
+<h5>
 <form action="" method="POST" class="id-form text-center" >
 <div class="row g-3 align-items-center text-center">
   <div class="col-auto">
@@ -23,9 +23,9 @@ if ( isset($_POST['submit']) ) {
   </div>
   <button type="submit" name="submit" class="btn btn-primary ">Find</button> 
  </form>
-</h4>
 
- <h4>
+
+ 
   <div class="container">
   <table class="table table-bordered ">
 <thead class="thead-dark">
@@ -36,6 +36,7 @@ if ( isset($_POST['submit']) ) {
     <th>Email</th>
     <th>Password</th>
     <th>Apt Id</th>
+    <th>Operations</th>
 </tr>
 </thead>
 <?php if ( isset($_POST['submit']) ) { ?>
@@ -46,10 +47,12 @@ if ( isset($_POST['submit']) ) {
      <td><?php echo $row["email"]; ?></td>
      <td><?php echo $row["password"]; ?></td>
      <td><?php echo $row['aptId']; ?></td>
-     <td><button type="submit" class="btn btn-primary " name="submit">Add</button><button type="submit"  class="btn btn-primary mx-4" name="submit">Update</button></td>
-     
+     <td><form action="" method="POST">
+        <a href="edit.php?id=<?php echo $row["uId"] ?>"><input type="button"  class="btn btn-dark " name="update" value="Update"/></a> 
+        <a href="delete.php?id=<?php echo $row["uId"] ?>"><input type="button"  class="btn btn-dark " name="delete" value="Delete"/></a>  
+</td></form>     
 </tr>
 <?php }?>
 </table>
 </div>
-</h4> 
+</h5> 

@@ -2,21 +2,28 @@
 session_start();
 include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/meta.php');
 include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/header.php');
+$id=$_GET['id'];
 $err="";
 if (isset($_SESSION['email']) &&  isset($_SESSION['passW'])) {
      $e = $_SESSION['email'];
      $p = $_SESSION['passW'];
-     $sql="SELECT * FROM  user  WHERE email = '".$e."' AND password = '".$p."'";
+    //  $sql="SELECT * FROM  user  WHERE email = '".$e."' AND password = '".$p."'";
+	$sql="SELECT * FROM  user  WHERE uId = '".$id."'";
      $result = $conn->query($sql);
      $row = mysqli_fetch_assoc($result);
      if ( isset($_POST['submit']) ) { 
-        if(!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['aptno'])){
+        if(!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['aptno'])) {
 			$userFname = $_POST['fname'];
             $userLname = $_POST['lname'];
             $userAptNo = $_POST['aptno'];
-            $result=$user->updateUser($userFname,$userLname,$userAptNo);
+			$sql="SELECT firstName from user WHERE email='".$e."' AND password='".$p."'";
+			$result = $conn->query($sql);
+            $resultArray= mysqli_fetch_assoc($result);
+			$UpdatedByPerson=$resultArray['firstName'];
+            $result=$user->updateUser($id,$userFname,$userLname,$userAptNo,$UpdatedByPerson);
             if ($result){
-				$sql="SELECT * FROM  user  WHERE email = '".$e."' AND password = '".$p."'";
+				// $sql="SELECT * FROM  user  WHERE email = '".$e."' AND password = '".$p."'";
+				$sql="SELECT * FROM  user  WHERE uId = '".$id."'";
 				$result = $conn->query($sql);
 				$row = mysqli_fetch_assoc($result);
                 $err="Updated Successfully of User Id".$row['uId'];

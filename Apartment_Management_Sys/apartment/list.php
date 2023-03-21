@@ -2,12 +2,7 @@
 include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/meta.php');
 include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/header.php');
 $result=$apt->listApt();
-if(isset($_POST['update'])){
-    header('location:edit.php');
-}
-if(isset($_POST['delete'])){
-    header('location:delete.php');
-}
+
 if(isset($_POST['add'])){
     echo "he";
     header('location:add.php');
@@ -18,7 +13,7 @@ if(isset($_POST['getApt'])){
 }
 ?>
 
-<
+
 <div class="container maindiv">
 <div class="d-grid d-md-flex justify-content-md-end bdiv">
     <form method="POST" action="">
@@ -36,23 +31,26 @@ if(isset($_POST['getApt'])){
     <th>Apt Country</th>
     <th>Apt ChairPerson Id</th>
     <th>Apt Created By</th>
+    <th>Apt Updated By</th>
     <th>Operations</th>
 </tr>
 </thead>
-<?php while ($row = $result -> fetch_array(MYSQLI_NUM)){?>
+<?php  while($row = mysqli_fetch_assoc($result)){?>
 <tr class="table-secondary">
-     <td><?php echo $row[0] ?></td>
-     <td><?php echo $row[1] ?></td>
-     <td><?php echo $row[2] ?></td>
-     <td><?php echo $row[3] ?></td>
-     <td><?php echo $row[4] ?></td>
-     <td><?php echo $row[5] ?></td>
-     <td><?php echo $row[6] ?></td>
-     <td><?php echo $row[7] ?></td>
-     <td> 
+<td><?php echo $row["aptId"]; ?></td>
+<td><?php echo $row["aptName"]; ?></td>
+     <td><?php echo $row["aptAddress"]; ?></td>
+     <td><?php echo $row["aptCity"]; ?></td>
+     <td><?php echo $row["aptState"]; ?></td>
+     <td><?php echo $row['aptCountry']; ?></td>
+     <td><?php echo $row['aptChairPerson_Id']; ?></td>
+     <td><?php echo $row['createdBy']; ?></td>
+     <td><?php echo $row['updatedBy']; ?></td>
+     <td>
         <form action="" method="POST">
-            <button type="submit" class="btn btn-dark " name="update">Update</button><button type="submit"  class="btn btn-dark mx-3" name="delete">Delete</button>
-        </form>
+        <a href="edit.php?id=<?php echo $row["aptId"] ?>"><input type="button"  class="btn btn-dark " name="update" value="Update"/></a> 
+        <a href="delete.php?id=<?php echo $row["aptId"] ?>"><input type="button"  class="btn btn-dark " name="delete" value="Delete"/></a>  
+    </form>
     </td>
 
 </tr>

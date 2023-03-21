@@ -15,8 +15,16 @@
     if ($isValidCredential) {
     session_start(); 
     $_SESSION['email'] = $userEmail;
-    $_SESSION['passW'] = $userPassword;              
+    $_SESSION['passW'] = $userPassword; 
+    $result=$auth->checkingUser($userEmail,$userPassword);
+    
+    if (($result['rLabel']=="Admin")) {            
+      header('Location: adminDashboard.php');
+    } elseif (($result['rLabel']=="Chairperson")) {
+      header('Location: chairpersonDashboard.php');
+    } else {
       header('Location: dashboard.php');
+    }
     } else {
       $err="incorrect credentials";
     }
@@ -53,16 +61,21 @@
                 <label class="form-check-label" for="form2Example3">
                   Remember me
                 </label>
+                <!-- <br><a href="chairpersonOption.php" class="text-body">Want to Be a Chairperson?</a> -->
               </div>
+              
               <a href="forgotpassword.php" class="text-body">Forgot password?</a>
+             
             </div>
 
             <div class="text-center btnclass">
               <input type="submit" name="submit" class="btn btn-primary btn-lg "
                 style="padding-left: 2.5rem; padding-right: 2.5rem;" value="Login" >
                  <?php echo $err ? '<span class="error">'.$err.'</span>':'';?>
+                 
               <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="register.php"
                   class="link-danger">Register</a></p>
+                  
             </div>
 
           </form>

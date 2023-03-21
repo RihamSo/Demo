@@ -40,16 +40,15 @@ class Auth{
       mysqli_free_result($result);
 
     }
+
+    function checkingUser($userEmail, $userPassword) {
+      global $conn;
+      $sql =  "SELECT r.rLabel FROM role as r JOIN user as u ON r.rId=u.rId WHERE u.email = '".$userEmail."' AND u.password = '".$userPassword."'" ;
+      $result = $conn->query($sql);
+      $row = mysqli_fetch_assoc($result);
+      return $row;
   }
-
-
   
-
-
-
-
-
-
-
-
+  
+  }
 ?> 

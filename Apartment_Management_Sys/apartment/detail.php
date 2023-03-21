@@ -6,12 +6,7 @@ if ( isset($_POST['submit']) ) {
     $id=$_POST['id'];
     $row=$apt->getApt($id);
 }
-if(isset($_POST['update'])) {
-  header('location:edit.php');
-}
-if(isset($_POST['delete'])) {
-  header('location:delete.php');
-}
+
 ?>
 
 <h4>
@@ -59,8 +54,8 @@ if(isset($_POST['delete'])) {
      <td><?php echo $row['createdBy']; ?></td>
      <td>
       <form method="POST" action="">
-        <button type="submit" class="btn btn-dark " name="update">Update</button><button type="submit"  class="btn btn-dark mx-4" name="delete">Delete</button>
-      </form>
+      <a href="edit.php?id=<?php echo $row["aptId"] ?>"><input type="button"  class="btn btn-dark " name="update" value="Update"/></a> 
+      <a href="delete.php?id=<?php echo $row["aptId"] ?>"><input type="button"  class="btn btn-dark " name="delete" value="Delete"/></a>      </form>
     </td>
      
 </tr>
