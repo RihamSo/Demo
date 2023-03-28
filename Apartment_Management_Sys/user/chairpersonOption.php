@@ -1,14 +1,15 @@
 <?php
 session_start();
-include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/meta.php');
-include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/header.php');
+include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/protected/meta.php');
+include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/protected/header.php');
 $uId=$_GET['id'];
+$aptId=$_GET['aptId'];
 $err="";
 if(isset($_POST['submit'])) {
  
     $answer = $_POST['radio'];  
     if ($answer == "yes") {          
-     $result=$user->userToChairperson($uId); 
+     $result=$user->userToChairperson($uId,$aptId); 
      if($result) {
         $err="Updated as Chairperson for user Id: ".$uId;
     } else {

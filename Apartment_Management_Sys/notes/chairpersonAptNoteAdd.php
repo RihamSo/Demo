@@ -1,22 +1,23 @@
-
 <?php
 session_start();
-// include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/meta.php');
-// include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/header.php');
 include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/protected/meta.php');
 include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/protected/header.php');
+
+$aptId=$_GET['aptId'];
+global $conn;
+      $sql="SELECT aptName FROM apartment WHERE aptId='".$aptId."'";
+      $result = $conn->query($sql);
+      $row = mysqli_fetch_assoc($result);
+      $aptName=$row['aptName'];
 $err="";
 if(isset($_POST['listNotes'])) {
-	header('location:list.php');
-
+	header('location:chairpersonAptNoteList.php?apartment_name='.$aptName);
 }
-if (isset($_SESSION['email']) &&  isset($_SESSION['passW'])) {
+if(isset($_SESSION['email']) &&  isset($_SESSION['passW'])) {
     $e = $_SESSION['email'];
     $p = $_SESSION['passW'];
-
     if(isset($_POST['addNote'])) {
-        if(!empty($_POST['aname']) && !empty($_POST['info']) ) {
-            $aname=$_POST['aname'];
+        if( !empty($_POST['info']) ) {
 			$nData=$_POST['info'];
             global $conn;
             $sql="SELECT firstName from user WHERE email='".$e."' AND password='".$p."'";
@@ -24,17 +25,17 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['passW'])) {
                 $resultArray= mysqli_fetch_assoc($result);
 			    $createdByPerson=$resultArray['firstName'];
   
-            $result=$note->addNote($nData,$aname,$createdByPerson); 
-            if($result) {
-                $err="added note successfully for note id".$result['nId'];
-            } else {
+                $result=$note->addNoteToChairpersonApt($nData,$aptId,$createdByPerson); 
+               if($result) {
+                  $err="added note successfully for note id".$result['nId'];
+                } else {
                 $err="not added";
-            }
-         } else {
-        $err="please fill all fields";
+                }
+                } else {
+                  $err="please fill all fields";
+                }
         }
-    }
-}
+ }
 ?>
 
 <form action="" method="POST" class="id-form text-center" >
@@ -46,35 +47,20 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['passW'])) {
 						</div>
 					</div>
 				</div>
-                <div class="col-lg-8 text-center">
-					<div class="card">
-						<div class="card-body">
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Apartment Name</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="" name="aname">
-								</div>
-							</div>
-</div>
-</div>
-</div>
 				<div class="container my-3 text-center">
 					<div class="card">
 						<div class="card-body">
 							
                                 <textarea id="w3review" name="info" rows="10" cols="120" class="form-control">
-hello
-</textarea>
+                                                        hello
+                                 </textarea>
 								</div>
-								
 							</div>
                             
 							<div class="row">
 								<div class="col-sm-3"></div>
 								<div class="col-sm-9 text-secondary">
-								<input type="submit" name= "listNotes" class="btn btn-primary px-4" value="See All Notes">
+	                              <input type="submit" name= "listNotes" class="btn btn-primary px-4" value="see all Notes">
 									<input type="submit" name= "addNote" class="btn btn-primary px-4" value="Create Notes">
                                       <?php echo $err ? '<span class="error">'.$err.'</span>':'';?> 
 								</div>
@@ -87,10 +73,9 @@ hello
 	</div> 
 <?php if (isset($_POST['addNote'])) { ?>
 	<?php if($result) { ?>
-	<!--  -->
-			<div class="card  text-center text-white bg-success mb-8" style="max-width: 540px;">
+  <div class="card  text-center text-white bg-success mb-8" style="max-width: 540px;">
   <div class="card-body">
-    <h5 class="card-title text-white"><?php echo $aname;?></h5>
+    <h5 class="card-title text-white"><?php echo  $aptName;?></h5>
     <h6 class="card-subtitle mb-2 text-white"><?php echo "Created By  ".$result['createdBy'] ."   At :".$result['createdAt'];?></h6>
     <p class="card-text text-white"><?php echo $result['nData'];?></p>
     <form action="" method="POST">

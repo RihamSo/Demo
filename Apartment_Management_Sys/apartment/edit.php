@@ -1,7 +1,7 @@
 <?php
 session_start();
-include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/meta.php');
-include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/header.php');
+include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/protected/meta.php');
+include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/protected/header.php');
 $aptId=$_GET['id'];
 $err="";
 if (isset($_SESSION['email']) &&  isset($_SESSION['passW'])) {
@@ -44,7 +44,7 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['passW'])) {
 <form action="" method="POST" class="id-form text-center" >
 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
 									<h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook me-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Update Apartment Info</h6>
-									<a href="../dashboard.php"><span class="text-secondary">Back</span></a>
+									
 								</li>
 							</ul>
 						</div>

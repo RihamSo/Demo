@@ -3,9 +3,14 @@
 // do php stuff
 //session_start(); 
 // include('../Html/navbar.html');
-include($_SERVER['DOCUMENT_ROOT'].'/Riham/Apartment_Management_Sys/includes/constants.php');
+
+include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/includes/constants.php');
+
+// include($_SERVER['DOCUMENT_ROOT'].'/Riham/Apartment_Management_Sys/includes/constants.php');
+
 include(PROJECT_ROOT.'includes/database.php');
 include(PROJECT_ROOT.'includes/config.php');
+
 
 
 
@@ -21,27 +26,17 @@ include(PROJECT_ROOT.'includes/config.php');
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="navbar.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="home.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#login">About Us</a>
+            <a class="nav-link" href="aboutus.php">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" href="contactus.php">Contact Us</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Features
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Action1</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
+         
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
+            <a class="nav-link" href="index.php">Login</a>
           </li>
           <!-- <div class="right-nav">
     <input type="text" name="search" id="search">

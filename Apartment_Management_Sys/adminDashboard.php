@@ -1,18 +1,20 @@
 <?php
  session_start(); 
- include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/public/meta.php');
- include($_SERVER["DOCUMENT_ROOT"].'/Riham/Apartment_Management_Sys/protected/header.php');
+include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/public/meta.php');
+include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/protected/header.php');
+
  $result=$user->get_User_Data();
+ 
  ?>
  <div class="container-fluid">
     <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 "style="background: #c49ee9;">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                    <span class="fs-5 d-none d-sm-inline"style="color: black;">Menu</span>
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a href="#" class="nav-link align-middle px-0">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                         </a>
@@ -62,10 +64,14 @@
                                 <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
                             </li>
                         </ul>
+                    </li> -->
+                    <li>
+                        <a href="./notes/add.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"style="color: black;">Notes Management</span> </a>
                     </li>
                     <li>
                         <a href="./apartment/list.php" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Apartment Management</span> </a>
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"style="color: black;">Apartment Management</span> </a>
                     </li>
                     <!-- <li>
                         <a href="./user/add.php" class="nav-link px-0 align-middle">
@@ -78,7 +84,7 @@
 
                     <li>
                         <a href="./user/list.php" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">User Management</span> </a>
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"style="color: black;">User Management</span> </a>
                     </li>
 
                     <!-- <li>
@@ -86,7 +92,7 @@
                             <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Get User</span> </a>
                     </li> -->
                     
-                    <li><a  href="logout.php">Sign out</a></li>
+                    <li><a  href="logout.php"style="color: black;">Sign out</a></li>
                 </ul>
                 <hr>
                 <div class="dropdown pb-4">

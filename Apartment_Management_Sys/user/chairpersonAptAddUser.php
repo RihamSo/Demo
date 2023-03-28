@@ -1,8 +1,10 @@
 <?php
 session_start();
-
 include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/protected/meta.php');
 include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/protected/header.php');
+if(isset($_GET['aptId']) && $_GET['aptId']!=''){
+    $aptId=$_GET['aptId'];
+}
 if (isset($_SESSION['email']) &&  isset($_SESSION['passW']) ) {
    $m="";
     $e = $_SESSION['email'];
@@ -13,27 +15,24 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['passW']) ) {
   
  
     if ( isset($_POST['submit']) ) { 
-        $sql =  "SELECT r.rLabel FROM role as r JOIN user as u ON r.rId=u.rId WHERE u.email = '".$e."' AND u.password = '".$p."'" ;
-        $result = $conn->query($sql);
-        $row = mysqli_fetch_assoc($result);
-        if ( ($row['rLabel']=="Admin") || ($row['rLabel']=="Chairperson") ) {
+       if(!empty($_POST['fname'] &&!empty($_POST['lname']) &&!empty($_POST['email']) &&!empty($_POST['pass']) )) {
 
             $userFname = $_POST['fname'];
             $userLname = $_POST['lname'];
             $userEmail = $_POST['email'];
             $userPass = $_POST['pass'];
-            // $userRid = $_POST['rid'];
+        
             $sql="SELECT firstName FROM  user  WHERE email = '".$e."' AND password = '".$p."'";
             $result = $conn->query($sql);
             $row = mysqli_fetch_assoc($result);
             $createdBy=$row['firstName']; 
-            $userAptid = $_POST['aptid'];
-            $r=$user->add($userFname,$userLname,$userEmail,$userPass,$createdBy, $userAptid);
+      
+            $r=$user->addUserChairpersonApt($userFname,$userLname,$userEmail,$userPass,$createdBy, $aptId);
             if ($r){
               $m="Added Successfully Record On ".$r['uId']."User Id";
             }
     } else {
-        $m="You have no permission to add user.";
+        $m="Please fill all Fields.";
      } 
   }
 
@@ -68,20 +67,7 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['passW']) ) {
                   <input type="password" id="form3Example4" class="form-control form-control-lg"
                     placeholder="Enter password" name="pass" />
                   <label class="form-label" for="form3Example4">Password</label>
-                </div>
-
-            
-                <!-- <div class="form-outline mb-3 form-floating mb-3 ">
-                  <input type="number" id="form3Example4" class="form-control form-control-lg"
-                    placeholder="Enter password" name="rid" />
-                  <label class="form-label" for="form3Example4">Role Id</label>
-                </div> -->
-
-                <div class="form-outline mb-3 form-floating mb-3 ">
-                  <input type="number" id="form3Example4" class="form-control form-control-lg"
-                    placeholder="Enter password" name="aptid" />
-                  <label class="form-label" for="form3Example4">Apartment Id</label>
-                </div>
+</div>
              
                   <div class="text-center btnclass">
                   <input type="submit" name="submit" class="btn btn-primary btn-lg "

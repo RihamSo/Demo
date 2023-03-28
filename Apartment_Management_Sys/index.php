@@ -1,7 +1,10 @@
 <?php
 
- include('./public/meta.php');
- include('./public/header.php');
+//  include('./public/meta.php');
+//  include('./public/header.php');
+include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/public/meta.php');
+include($_SERVER["DOCUMENT_ROOT"].'/projects/srs-b4-Intern-2/Apartment_Management_Sys/public/header.php');
+
  $err="";
  
  if (isset($_POST['submit'])){
@@ -19,11 +22,11 @@
     $result=$auth->checkingUser($userEmail,$userPassword);
     
     if (($result['rLabel']=="Admin")) {            
-      header('Location: adminDashboard.php');
+      header('Location:adminDashboard.php');
     } elseif (($result['rLabel']=="Chairperson")) {
-      header('Location: chairpersonDashboard.php');
+      header('Location:chairpersonDashboard.php');
     } else {
-      header('Location: dashboard.php');
+      header('Location:dashboard.php');
     }
     } else {
       $err="incorrect credentials";
